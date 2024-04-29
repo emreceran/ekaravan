@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="hr_ogrenci_goster">
+        <field name="name">hr.department.ogrenci.inherit</field>
+        <field name="model">hr.department</field>
+        <field name="inherit_id" ref="hr.view_department_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='parent_id']" position="after">
+                <button  name="ogrencileri_goster" string="ogrencileri goster" type="object" class="oe_highlight"  data-hotkey="ö"/>
+            </xpath>
+
+        </field>
+    </record>
+
+
+
+
+</odoo>
+

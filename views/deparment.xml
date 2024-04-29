@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="department_form_inherit_view">
+        <field name="name">department.form.form.inherit</field>
+        <field name="model">hr.department</field>
+        <field name="inherit_id" ref="hr.view_department_form"/>
+        <field name="arch" type="xml">
+            <!--            <xpath expr="//header//button[@name='329']" position="replace">-->
+            <!--                <button  name="gorev" string="Sarım Emri Oluştur" type="object" class="oe_highlight"  data-hotkey="ö"/>-->
+            <!--            </xpath>-->
+            <!--            <xpath expr="//header//button[@name='action_plan_from_department']" position="after">-->
+            <!--                <button  name="act_ogrenci_from_department" string="Çatım Emri Oluştur" type="action"  class="oe_highlight"   data-hotkey="ç"/>-->
+            <!--            </xpath>-->
+            <xpath expr="//field[@name='parent_id']" position="after">
+
+                <field name="derece" />
+                <field name="ogrenciler" />
+
+
+            </xpath>
+
+
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="res_users_form_inherit_view">
+        <field name="name">res.users.form.inherit</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <!--            <xpath expr="//header//button[@name='329']" position="replace">-->
+            <!--                <button  name="gorev" string="Sarım Emri Oluştur" type="object" class="oe_highlight"  data-hotkey="ö"/>-->
+            <!--            </xpath>-->
+            <!--            <xpath expr="//header//button[@name='329']" position="replace">-->
+            <!--                <button  name="catim_emri" string="Çatım Emri Oluştur" type="object"  class="oe_highlight"   data-hotkey="ç"/>-->
+            <!--            </xpath>-->
+            <xpath expr="//field[@name='login']" position="after">
+
+                <group>
+                    <field name="sube_id" />
+                    <field name="ilce_id" />
+                    <field name="okul_id" />
+                </group>
+
+
+
+            </xpath>
+
+
+        </field>
+    </record>
+
+    <!--    <record id="act_ogrenci_from_department" model="ir.actions.act_window">-->
+    <!--            <field name="name">Ogrenciler</field>-->
+    <!--            <field name="res_model">res.users</field>-->
+    <!--            <field name="view_mode">tree,kanban,form</field>-->
+    <!--            <field name="search_view_id" ref="view_ogrenci_filter"/>-->
+    <!--&lt;!&ndash;            <field name="context">{&ndash;&gt;-->
+    <!--&lt;!&ndash;                "default_department_id": active_id,&ndash;&gt;-->
+    <!--&lt;!&ndash;                "search_default_group_department": 1,&ndash;&gt;-->
+    <!--&lt;!&ndash;                "search_default_department_id": active_id,&ndash;&gt;-->
+    <!--&lt;!&ndash;                "expand": 1}&ndash;&gt;-->
+    <!--&lt;!&ndash;            </field>&ndash;&gt;-->
+    <!--            <field name="help" type="html">-->
+    <!--              <p class="o_view_nocontent_smiling_face">-->
+    <!--                Add a new employee-->
+    <!--              </p><p>-->
+    <!--                With just a quick glance on the Odoo employee screen, you-->
+    <!--                can easily find all the information you need for each person;-->
+    <!--                contact data, job position, availability, etc.-->
+    <!--              </p>-->
+    <!--            </field>-->
+    <!--        </record>-->
+
+
+
+</odoo>
+

@@ -1,0 +1,74 @@
+<odoo>
+    <template id="profile_fields_inherit" inherit_id="website_profile.user_profile_edit_content" name="Sign up - Reset Password">
+
+        <xpath expr="//select[@name='country']/parent::*/parent::div" position="after">
+
+
+
+
+            <div t-attf-class="form-group  col-xl-6">
+                <label class="col-form-label" for="okul_id">Okul</label>
+                <select name="okul_id"  t-attf-class="form-control advanced-select">
+                    <option value="">Okulunuzun Adını Yazmaya BAşlayınız...</option>
+                    <t t-foreach="okullar" t-as="sube">
+                        <option t-att-value="sube.display_name" >
+                            <t t-esc="sube.complete_name" />
+
+                        </option>
+                    </t>
+                </select>
+            </div>
+
+
+
+        </xpath>
+    </template>
+
+
+    <template id="signup_fields_inherit" inherit_id="auth_signup.fields" name="Sign up - Reset Password">
+
+
+
+        <xpath expr="//label[@for='name']/parent::div" position="after">
+
+
+
+            <div t-attf-class="form-group ">
+                <label class="col-form-label" for="okul_id">Okul</label>
+                <select name="okul_id"  t-attf-class="form-control advanced-select">
+                    <option value="">Okulunuzun Adını Yazmaya BAşlayınız...</option>
+                    <t t-foreach="okullar" t-as="sube">
+                        <option t-att-value="sube.display_name" >
+                            <t t-esc="sube.complete_name" />
+
+                        </option>
+                    </t>
+                </select>
+            </div>
+
+
+
+        </xpath>
+    </template>
+
+    <template id="my_account_link_son" name="Link to frontend portal" inherit_id="portal.user_dropdown">
+        <xpath expr="//*[@id='o_logout_divider']" position="before">
+            <a t-attf-href="/profile/user/#{uid}" role="menuitem" class="dropdown-item ps-3">
+                <i class="fa fa-fw fa-id-card-o me-1 small text-muted"/> Profilim
+            </a>
+        </xpath>
+    </template>
+
+    <!--    <template id="my_account_link_sonx" name="Link to frontend portal" inherit_id="portal.my_account_link">-->
+    <!--           <xpath expr="//a" position="attributes">-->
+    <!--                <field name="active">Hide</field>-->
+    <!--            </xpath>-->
+    <!--        </template>-->
+
+
+
+
+
+
+
+</odoo>

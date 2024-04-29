@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <record id="view_slide_slide_form_inherit" model="ir.ui.view">
+            <field name="name">slide.slide.form.inherit</field>
+            <field name="model">slide.slide</field>
+            <field name="inherit_id" ref="slide.view_slide_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet/notebook/page[1]/field[@name='description']" position="after">
+                    <field name="student_answer_image" widget="image"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,240 @@
+
+
+<odoo>
+    <data>
+
+
+        <!--        <template id="portal_my_details_inherit" inherit_id="portal.portal_my_details_fields"  name="User Deatails Inherit">-->
+        <!--            <xpath expr="//label[@for='company_name']/parent::div" position="attributes">-->
+        <!--                <attribute name="style">display:none</attribute>-->
+        <!--            </xpath>-->
+
+        <!--&lt;!&ndash;            <xpath expr="//small[contains(.,'Changing company name or VAT')]" position="attributes">&ndash;&gt;-->
+        <!--&lt;!&ndash;                <attribute name="style">display:none</attribute>&ndash;&gt;-->
+        <!--&lt;!&ndash;            </xpath>&ndash;&gt;-->
+
+        <!--            <xpath expr="//label[@for='vat']/parent::div" position="attributes">-->
+        <!--                <attribute name="style">display:none</attribute>-->
+        <!--            </xpath>-->
+
+        <!--            <xpath expr="//label[@for='street']" position="replace">-->
+        <!--                <label class="col-form-label" for="street">Adres</label>-->
+        <!--            </xpath>-->
+
+        <!--&lt;!&ndash;            <xpath expr="//label[@for='city']/parent::div" position="attributes">&ndash;&gt;-->
+        <!--&lt;!&ndash;                <attribute name="style">display:none</attribute>&ndash;&gt;-->
+        <!--&lt;!&ndash;            </xpath>&ndash;&gt;-->
+
+        <!--&lt;!&ndash;            <xpath expr="//label[@for='zipcode']/parent::div" position="attributes">&ndash;&gt;-->
+        <!--&lt;!&ndash;                <attribute name="style">display:none</attribute>&ndash;&gt;-->
+        <!--&lt;!&ndash;            </xpath>&ndash;&gt;-->
+
+        <!--&lt;!&ndash;            <xpath expr="//label[@for='country_id']/parent::div" position="attributes">&ndash;&gt;-->
+        <!--&lt;!&ndash;                <attribute name="style">display:none</attribute>&ndash;&gt;-->
+        <!--&lt;!&ndash;            </xpath>&ndash;&gt;-->
+        <!--&lt;!&ndash;            <xpath expr="//label[@for='state_id']/parent::div" position="attributes">&ndash;&gt;-->
+        <!--&lt;!&ndash;                <attribute name="style">display:none</attribute>&ndash;&gt;-->
+        <!--&lt;!&ndash;            </xpath>&ndash;&gt;-->
+
+
+
+        <!--            <xpath expr="//label[@for='phone']/parent::div" position="after">-->
+
+        <!--                <div t-attf-class="form-group  col-xl-6">-->
+        <!--                    <label class="col-form-label label-optional" for="sube_id"> İl </label>-->
+        <!--                    <select name="sube_id" t-attf-class="form-control #{error.get('id') and 'is-invalid' or ''}">-->
+        <!--                        <option value="">Seçiniz...</option>-->
+        <!--                        <t t-foreach="subeler or []" t-as="sube">-->
+        <!--                            <t t-esc="sube.name" />-->
+        <!--                            <option t-att-value="sube.id"   t-att-data-sube_id="sube.id" >-->
+        <!--                                <t t-esc="sube.name" />-->
+        <!--                            </option>-->
+        <!--                        </t>-->
+        <!--                    </select>-->
+        <!--                </div>-->
+
+
+        <!--                <div t-attf-class="form-group #{error.get('ilce_id') and 'o_has_error' or ''} col-xl-6">-->
+        <!--                    <label class="col-form-label label-optional" for="ilce_id"> ilçe </label>-->
+        <!--                    <select name="ilce_id" t-attf-class="form-control #{error.get('ilce_id') and 'is-invalid' or ''}">-->
+        <!--                        <option value="">Seçiniz...</option>-->
+        <!--                        <t t-foreach="ilceler or []" t-as="ilce">-->
+        <!--                            <t t-esc="ilce.name" />-->
+        <!--                            <option t-att-value="ilce.id"   t-att-data-ilce_id="ilce.id" >-->
+        <!--                                <t t-esc="ilce.name" />-->
+        <!--                            </option>-->
+        <!--                        </t>-->
+        <!--                    </select>-->
+        <!--                </div>-->
+
+        <!--                <div t-attf-class="form-group #{error.get('okul_id') and 'o_has_error' or ''} col-xl-6">-->
+        <!--                    <label class="col-form-label label-optional" for="okul_id"> Okul </label>-->
+        <!--                    <select name="okul_id" t-attf-class="form-control #{error.get('okul_id') and 'is-invalid' or ''}">-->
+        <!--                        <option value="">Seçiniz...</option>-->
+        <!--                        <t t-foreach="okullar or []" t-as="okul">-->
+        <!--                            <option t-att-value="okul.id"   t-att-data-okul_id="okul.id" >-->
+        <!--                                <t t-esc="okul.name" />-->
+        <!--                            </option>-->
+        <!--                        </t>-->
+        <!--                    </select>-->
+        <!--                </div>-->
+
+
+        <!--                &lt;!&ndash;                <input type="hidden" name="redirect" t-att-value="redirect"/>&ndash;&gt;-->
+        <!--            </xpath>-->
+        <!--        </template>-->
+
+
+
+
+        <record model="ir.actions.act_window" id="action_department_teskilat_tum">
+            <field name="name">Tüm Birimler </field>
+            <field name="res_model">hr.department</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <!--            <field name="domain" >[('derece','=', '1')]</field>-->
+        </record>
+        <menuitem
+                id="menu_action_department_teskilat_tum"
+                action="action_department_teskilat_tum"
+                parent="hr.menu_hr_department_kanban"
+                sequence="30"
+        />
+        <record model="ir.actions.act_window" id="action_department_teskilat_sube">
+            <field name="name">Şubeler</field>
+            <field name="res_model">hr.department</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="domain" >[('derece','=', '1')]</field>
+        </record>
+        <menuitem
+                id="menu_action_department_teskilat_sube"
+                action="action_department_teskilat_sube"
+                parent="hr.menu_hr_department_kanban"
+                sequence="30"
+        />
+
+
+        <record model="ir.actions.act_window" id="action_department_teskilat_ilce">
+            <field name="name">İlçeler</field>
+            <field name="res_model">hr.department</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain" >[('derece','=', '2')]</field>
+        </record>
+        <menuitem
+                id="menu_action_department_teskilat_ilce"
+                action="action_department_teskilat_ilce"
+                parent="hr.menu_hr_department_kanban"
+                sequence="30"
+        />
+
+
+        <record model="ir.actions.act_window" id="action_department_teskilat_okul">
+            <field name="name">Okullar</field>
+            <field name="res_model">hr.department</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain" >[('derece','=', '3')]</field>
+        </record>
+        <menuitem
+                id="menu_action_department_teskilat_okul"
+                action="action_department_teskilat_okul"
+                parent="hr.menu_hr_department_kanban"
+                sequence="30"
+        />
+
+        <record id="hr.menu_hr_root" model="ir.ui.menu">
+            <field name="name"> Teşkilat </field>
+        </record>
+
+        <record id="hr.menu_hr_employee_payroll" model="ir.ui.menu">
+            <field name="name"> Personel </field>
+        </record>
+
+        <record id="hr.menu_hr_employee_user" model="ir.ui.menu">
+            <field name="name"> Persnoel </field>
+        </record>
+
+
+
+
+
+        <!--        <record model="ir.ui.view" id="ogrenciler_tree">-->
+        <!--            <field name="name">ogrencilere.tree</field>-->
+        <!--            <field name="model">res.uers</field>-->
+        <!--            <field name="type">tree</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <tree>-->
+        <!--                    <field name="name"/>-->
+
+        <!--                </tree>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <!--        <record model="ir.actions.act_window" id="action_ogrenciler">-->
+        <!--            <field name="name">Öğrenciler</field>-->
+        <!--            <field name="res_model">res.users</field>-->
+        <!--            <field name="view_mode">tree</field>-->
+        <!--            <field name="view_id" ref="ogrenciler_tree" />-->
+        <!--            <field name="context">{ 'tree_view_ref':'ogrenciler_tree'}</field>-->
+        <!--            &lt;!&ndash;            <field name="domain" >[('derece','=', '3')]</field>&ndash;&gt;-->
+        <!--        </record>-->
+
+        <record model="ir.ui.view" id="view_tree_res_users">
+            <field name="name">res.users.tree.</field>
+            <field name="model">res.users</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="login"/>
+                    <field name="name"/>
+                    <field name="okul_id"/>
+
+                </tree>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_ogrenciler">
+            <field name="name">Users Tree View</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.users</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_tree_res_users"/>
+        </record>
+
+
+
+
+
+        <menuitem
+                id="menu_ogrenciler"
+                action="action_ogrenciler"
+                parent="hr.menu_hr_employee_payroll"
+                sequence="30"
+        />
+
+    </data>
+</odoo>
+
+
+        <!--<record id="planned_task_line_tree2" model="ir.ui.view">-->
+        <!--<field name="name">planned.task.line.tree2</field>-->
+        <!--<field name="model">planned.task.line</field>-->
+        <!--<field name="type">tree</field>-->
+        <!--<field name="arch" type="xml">-->
+        <!--    <tree string="Planned Task Line">-->
+        <!--        <field name="g_project_id"/>-->
+        <!--        <field name="g_task_id"/>-->
+        <!--        <field name="group_activity_id"/>-->
+        <!--        <field name="activities_id" />-->
+        <!--        <field name="product_id" />-->
+
+        <!--    </tree>-->
+        <!--</field>-->
+        <!--</record>-->
+
+        <!--<record model="ir.actions.act_window" id="act_open_planned_task_line2">-->
+        <!--<field name="name">Planned Task Line Group</field>-->
+        <!--<field name="res_model">planned.task.line</field>-->
+        <!--<field name="view_type">form</field>-->
+        <!--<field name="view_mode">tree,form</field>-->
+        <!--<field name="view_id" ref="planned_task_line_tree2"/>-->
+        <!--<field name="context">{ 'tree_view_ref':'planned_task_line_tree2'}</field>-->
+        <!--</record>-->
+
+        <!--<menuitem action="act_open_planned_task_line2" id="planned_task_line2" name="BOQ Acitivity Groups" parent="base.plannedtask" sequence="4"/>-->
